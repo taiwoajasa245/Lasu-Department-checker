@@ -40,6 +40,7 @@ Before running this application, make sure you have the following installed:
 
 ## Project Structure:
 
+```
 LASU DEPARTMENT CHECKER/
 |
 ├── public/
@@ -56,6 +57,7 @@ LASU DEPARTMENT CHECKER/
 ├── server.js
 └── README.md
 
+```
 
 ## Contributing
 
