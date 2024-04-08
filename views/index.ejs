@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>LASU Course allocation || <%= title %> </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="LASU_LOGO.png"
+    />
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link
+      rel="stylesheet"
+      href="material-design-iconic-font.min.css"
+    />
+    <script src="jquery.min.js.download"></script>
+    <script src="bootstrap.min.js.download"></script>
+
+    <link
+      href="bootstrap.css"
+      
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Custom CSS -->
+    <link
+      href="style.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript">
+      window.hasMobileFirstExtension = true;
+    </script>
+  </head>
+
+  <body>
+      <div class="inner">
+        <div class="form-group">
+          <img
+            src="LASU_LOGO.png"
+            width="50px"
+            height="50px"
+          />
+          <strong
+            ><h3>
+              COURSE AVAILABLE FOR LASU STUDENT COURSE REGISTRATION
+            </h3></strong
+          >
+
+          <div class="form-wrapper"></div>
+        </div>
+
+       <!-- send post request to nodeserver  -->
+        <form method="post" action="/dept-courses">
+          <div class="form-group">
+            <div class="form-wrapper">
+              <label for="">Faculty</label>
+              <select name="fac" id="fac" class="form-control" required="">
+                <option value="" selected="selected">Select</option>
+                <option value="01">FACULTY OF EDUCATION</option>
+                <option value="02">FACULTY OF ENGINEERING</option>
+                <option value="03">FACULTY OF ARTS</option>
+                <option value="04">FACULTY OF LAW</option>
+                <option value="05">FACULTY OF SCIENCE</option>
+                <option value="06">FACULTY OF SOCIAL SCIENCE</option>
+                <option value="07">FACULTY OF CLINICAL SCIENCES</option>
+                <option value="08">FACULTY OF MANAGEMENT SCIENCE</option>
+                <option value="09">
+                  FACULTY OF COMMUNICATION AND MEDIA STUDIES
+                </option>
+                <option value="10">
+                  SCHOOL OF TRANSPORT AND LOGISTICS STUDIES
+                </option>
+                <option value="11">FACULTY OF BASIC MEDICAL SCIENCES</option>
+                <option value="12">FACULTY OF DENTISTRY</option>
+                <option value="13">SCHOOL OF AGRICULTURE</option>
+                <option value="14">FACULTY OF BASIC CLINICAL SCIENCES</option>
+                <option value="15">FACULTY OF BASIC CLINICAL SCIENCES</option>
+                <option value="17">FACULTY OF ALLIED HEALTH SCIENCES</option>
+                <option value="18">FACULTY OF ENVIRONMENTAL SCIENCE</option>
+                <option value="50">
+                  SCHOOL OF LIBRARY ARCHIVAL AND INFORMATION SCIENCE
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-wrapper">
+              <label for="">Department</label>
+              <select
+                name="dept"
+                id="dept"
+                class="form-control"
+                required
+              ></select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-wrapper">
+              <label for="">Level</label>
+              <select name="level" required id="level" class="form-control">
+                <option value="" selected="selected">Select</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="300">300</option>
+                <option value="400">400</option>
+                <option value="500">500</option>
+                <option value="all">All</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-wrapper">
+              <button type="submit">Fetch</button>
+            </div>
+          </div>
+        </form>
+        <center>
+          <strong>
+            <div class="form-group">
+              <div class="form-wrapper">
+                © 2006 - 2024 Lagos State University
+              </div>
+            </div>
+          </strong>
+        </center>
+      </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
