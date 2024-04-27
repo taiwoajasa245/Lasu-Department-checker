@@ -8,9 +8,7 @@ const SCHOOL_URI = process.env.SCHOOL_URI;
 
 
 
-
 router.use(express.static('public'));
-
 
 
 // Set the headers to specify content type as application/x-www-form-urlencoded
@@ -26,7 +24,7 @@ router.get('/', (req, res) => {
     res.render('index.ejs', { title: 'Home' }); // Pass any data you want to inject into the EJS template
 });
 
-// get the department based on the selected faculty
+// get the department based on the selected faculty for testing
 router.post('/get-dept', async (req, res) => {
     try {
 
@@ -44,8 +42,6 @@ router.post('/get-dept', async (req, res) => {
 
     }
 });
-
-
 
 
 router.post('/dept-courses', async (req, res) => {
@@ -95,9 +91,8 @@ router.post('/dept-courses', async (req, res) => {
 });
 
 
-
-// get the department based on the selected faculty
-router.post('/get', async (req, res) => {
+// get the department based on the selected faculty API 
+router.post('/get-department', async (req, res) => {
     try {
 
         const body = req.body
@@ -120,11 +115,7 @@ router.post('/get', async (req, res) => {
             data: options
         };
 
-
-        // recieve data in html format and send it to the client
-
-        const jsonResponse = JSON.stringify(jsonData, null, 2);
-        res.send(jsonResponse);
+        res.status(200).json(jsonData);
 
     } catch (error) {
         // If there's an error, send an error response back to the client
@@ -135,9 +126,8 @@ router.post('/get', async (req, res) => {
 });
 
 
-router.post('/me', async (req, res) => {
+router.post('/get-courses', async (req, res) => {
     let { level } = req.body;
-
     try {
 
         const body = req.body;
@@ -184,8 +174,7 @@ router.post('/me', async (req, res) => {
             };
         }
 
-        const jsonResponse = JSON.stringify(jsonData, null, 2);
-        res.send(jsonResponse);
+        res.status(200).json(jsonData)
 
     } catch (error) {
         console.error('Error sending request:', error.message);
