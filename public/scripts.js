@@ -2,8 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     let level;
-    console.log("hola");
-
     document
       .getElementById("level")
       .addEventListener("change", function () {
@@ -16,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var formData = new URLSearchParams();
       formData.append("fac", selectedFac, "level", level);
 
-      fetch("http://localhost:3000/get-dept", {
+      fetch("/api/v1/get-dept", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
