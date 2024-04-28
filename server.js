@@ -12,9 +12,13 @@ const swaggerSpec = require('./specs/swaggerSpec.js');
 
 
 // Serve Swagger UI
-const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css";
+const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, { customCssUrl: CSS_URL }));
-
+app.use(
+    "/api-docs",
+    swaggerUI.serve,
+    swaggerUI.setup(specs, { customCssUrl: CSS_URL })
+  );
 
 // middleware
 app.use(cors());
