@@ -10,20 +10,8 @@ const courseRoute = require('./routes/courseRoute');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./specs/swaggerSpec.js');
 
-
 // Serve Swagger UI
-// const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css"
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, { 
-    
-    customCssUrl: [
-    'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css',
-    ] , customJs:[
-    'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js',
-    ] }));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 // middleware
@@ -43,7 +31,6 @@ app.set('views', __dirname + '/views');
 
 // routes
 app.use("/", courseRoute); 
-// app.use("/api/v1/", courseRoute); 
 
 
 // send an error message to unknow endpoint

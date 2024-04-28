@@ -10,7 +10,7 @@ const swaggerOptions = {
       description: 'get the list of all courses with the Course Title , Course Code , The UNIT of the course , LEVEL, Course Status',
     },
   },
-  apis: ["src/**/*.js"], // Path to your API route files
+  apis:  ["routes/*.js"], // Path to your API route files
 };
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
