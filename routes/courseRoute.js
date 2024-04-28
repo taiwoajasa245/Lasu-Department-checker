@@ -160,16 +160,7 @@ router.post('/dept-courses', async (req, res) => {
  *                       text:
  *                         type: string
  *                         description: Text of the department option
- *       500:
- *         description: Internal Server Error
- *         content:
- *           text/html:
- *             schema:
- *               type: string
- *               example: '<h1>Internal Server Error</h1>'
- *             description: Error message in HTML format
- */
-
+ */ 
 
 
 // get the department based on the selected faculty API 
@@ -290,16 +281,7 @@ router.post('/get-department', async (req, res) => {
  *                       COURSE_STATUS:
  *                         type: string
  *                         description: Status of the course
- *       500:
- *         description: Internal Server Error
- *         content:
- *           text/json:
- *             schema:
- *               type: string
- *               example: '<h1>Internal Server Error</h1>'
- *             description: Error message in HTML format
- */
-
+ */     
 
 
 // get the list of all courses and other thingss

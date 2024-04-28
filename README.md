@@ -1,4 +1,4 @@
-# LASU course allocation Web Scraper
+# LASU Course API
 
 This is a Node.js application built with Express that demonstrates web scraping using Axios and Cheerio, as well as integration with an external API. It provides endpoints for retrieving department information based on selected faculty and filtering courses by level.
 
@@ -50,6 +50,9 @@ LASU DEPARTMENT CHECKER/
 │
 ├── views/
 │   ├── index.ejs
+|
+├── util/
+│   ├── spec.js
 │
 ├── .env
 ├── .gitignore
