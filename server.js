@@ -6,6 +6,11 @@ const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 const courseRoute = require('./routes/courseRoute');
 
+// swagger documentation testing
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./specs/swaggerSpec');
+
+
 
 
 // middleware
@@ -22,8 +27,13 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
 
+// Serve Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
 // routes
-app.use("/api/v1/", courseRoute); 
+app.use("/", courseRoute); 
+// app.use("/api/v1/", courseRoute); 
 
 
 // send an error message to unknow endpoint

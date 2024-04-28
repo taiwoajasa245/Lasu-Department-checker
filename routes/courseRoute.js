@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
@@ -19,10 +20,10 @@ const config = {
 };
 
 
-
 router.get('/', (req, res) => {
     res.render('index.ejs', { title: 'Home' }); // Pass any data you want to inject into the EJS template
 });
+
 
 // get the department based on the selected faculty for testing
 router.post('/get-dept', async (req, res) => {
@@ -91,6 +92,86 @@ router.post('/dept-courses', async (req, res) => {
 });
 
 
+/**
+ * @swagger
+ * tags:
+ *   name: Department
+ *   description: Operations related to department options
+ *
+ * /get-department:
+ *   post:
+ *     summary: Get department options based on the selected faculty
+ *     description: Get department options based on the selected faculty from LASU
+ *     tags: [Department]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               fac:
+ *                 type: string
+ *                 description: Faculty code (01 to 18)
+ *                 example: '01'
+ *                 enum:
+ *                   - '01'
+ *                   - '02'
+ *                   - '03'
+ *                   - '04'
+ *                   - '05'
+ *                   - '06'
+ *                   - '07'
+ *                   - '08'
+ *                   - '09'
+ *                   - '10'
+ *                   - '11'
+ *                   - '12'
+ *                   - '13'
+ *                   - '14'
+ *                   - '15'
+ *                   - '16'
+ *                   - '17'
+ *                   - '18'
+ *     responses:
+ *       200:
+ *         description: Department options retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 200
+ *                   description: Status code indicating success
+ *                 message:
+ *                   type: string
+ *                   example: success
+ *                   description: Message indicating success
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       value:
+ *                         type: string
+ *                         description: Value of the department option
+ *                       text:
+ *                         type: string
+ *                         description: Text of the department option
+ *       500:
+ *         description: Internal Server Error
+ *         content:
+ *           text/html:
+ *             schema:
+ *               type: string
+ *               example: '<h1>Internal Server Error</h1>'
+ *             description: Error message in HTML format
+ */
+
+
+
 // get the department based on the selected faculty API 
 router.post('/get-department', async (req, res) => {
     try {
@@ -120,12 +201,108 @@ router.post('/get-department', async (req, res) => {
     } catch (error) {
         // If there's an error, send an error response back to the client
         console.error('Error sending request:', error.message);
-        res.status(500).send('<h1>Internal Server Error</h1>');
+        res.status(500).json({ status: 500, message: 'Internal Server Error' });
+
 
     }
 });
 
 
+
+/**
+ * @swagger
+ * tags:
+ *   name: Courses
+ *   description: Operations related to courses
+ *
+ * /get-courses:
+ *   post:
+ *     summary: Get courses based on the selected parameters
+ *     description: Get courses based on the selected parameters from the school
+ *     tags: [Courses]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               fac:
+ *                 type: string
+ *                 description: Faculty code (01 to 18)
+ *                 example: '01'
+ *                 enum:
+ *                   - '01'
+ *                   - '02'
+ *                   - '03'
+ *                   - '04'
+ *                   - '05'
+ *                   - '06'
+ *                   - '07'
+ *                   - '08'
+ *                   - '09'
+ *                   - '10'
+ *                   - '11'
+ *                   - '12'
+ *                   - '13'
+ *                   - '14'
+ *                   - '15'
+ *                   - '16'
+ *                   - '17'
+ *                   - '18'
+ *               dept:
+ *                 type: string
+ *                 description: Department code obtained from the get-department endpoint
+ *                 example: '0115'
+ *               level:
+ *                 type: string
+ *                 description: Course level (100 to 400) or 'ALL' to retrieve all levels
+ *                 example: '200'
+ *     responses:
+ *       200:
+ *         description: Courses retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: success
+ *                   description: Message indicating success
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       COURSE_TITLE:
+ *                         type: string
+ *                         description: Title of the course
+ *                       COURSE_CODE:
+ *                         type: string
+ *                         description: Code of the course
+ *                       UNIT:
+ *                         type: integer
+ *                         description: Number of units for the course
+ *                       LEVEL:
+ *                         type: integer
+ *                         description: Level of the course
+ *                       COURSE_STATUS:
+ *                         type: string
+ *                         description: Status of the course
+ *       500:
+ *         description: Internal Server Error
+ *         content:
+ *           text/json:
+ *             schema:
+ *               type: string
+ *               example: '<h1>Internal Server Error</h1>'
+ *             description: Error message in HTML format
+ */
+
+
+
+// get the list of all courses and other thingss
 router.post('/get-courses', async (req, res) => {
     let { level } = req.body;
     try {

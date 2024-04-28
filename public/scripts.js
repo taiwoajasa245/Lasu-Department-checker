@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var formData = new URLSearchParams();
       formData.append("fac", selectedFac, "level", level);
 
-      fetch("/api/v1/get-dept", {
+      fetch("/get-dept", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
