@@ -23,7 +23,17 @@ const swaggerOptions = {
       title: 'LASU Course API ',
       version: '1.0.0',
       description: 'get the list of all courses with the Course Title , Course Code , The UNIT of the course , LEVEL, Course Status',
-    },
+    },    
+    servers: [
+        {
+          url: "/",
+          description: "Test Api",
+        },
+        {
+          url: "/api-docs",
+          description: "api documentation and testing",
+        },
+      ],
   },
   apis:  ["routes/*.js"], // Path to your API route files
 };
@@ -57,6 +67,9 @@ const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.6.2/swagger
 
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec,  { customCssUrl: CSS_URL }));
+
+
+app.use(express.static('public'));
 
 
 // middleware
