@@ -8,7 +8,7 @@ const courseRoute = require('./routes/courseRoute');
 
 // swagger documentation testing
 const swaggerUi = require('swagger-ui-express');
-const swaggerSpec = require('./specs/swaggerSpec.js');
+const swaggerSpec = require('./swaggerSpec.js');
 
 // Serve Swagger UI
 
