@@ -9,6 +9,16 @@ const swaggerOptions = {
       version: '1.0.0',
       description: 'get the list of all courses with the Course Title , Course Code , The UNIT of the course , LEVEL, Course Status',
     },
+    servers: [
+      {
+        url: "/",
+        description: "Test Api",
+      },
+      {
+        url: "/api-docs",
+        description: "api documentation and testing",
+      },
+    ]
   },
   apis:  ["routes/*.js"], // Path to your API route files
 };
