@@ -1,25 +1,23 @@
 {
-  "name": "express-static-website",
   "version": 2,
-  "public": true,
   "builds": [
     {
-      "src": "server.js",
-      "use": "@vercel/node"
+      "src": "server.js", 
+      "use": "@vercel/node" 
     },
     {
-      "src": "public/**",
+      "src": "public/**", 
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/((?!.*\\.\\w+$).*)",
-      "dest": "/server.js"
+      "src": "/api-docs/(.*)",
+      "dest": "spec/$1"
     },
     {
-      "src": "/(.+\\.[a-z]+)$",
-      "dest": "/public/$1"
+      "src": "/((?!api-docs).*)",
+      "dest": "server.js" 
     }
   ]
 }
