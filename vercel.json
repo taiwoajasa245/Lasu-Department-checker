@@ -25,5 +25,9 @@
       "src": "/spec/(.*)",
       "dest": "spec/$1"
     }
+  ], 
+  
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
   ]
 }
