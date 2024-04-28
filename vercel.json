@@ -22,8 +22,8 @@
       "dest": "/public/$1"
     },
     {
-      "src": "/spec/(.*)",
-      "dest": "spec/$1"
+      "src": "/specs/(.*)",
+      "dest": "specs/$1"
     }
   ]
 }
