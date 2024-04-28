@@ -8,9 +8,11 @@ const courseRoute = require('./routes/courseRoute');
 
 // swagger documentation testing
 const swaggerUi = require('swagger-ui-express');
-const swaggerSpec = require('./specs/swaggerSpec');
+const swaggerSpec = require('./specs/swaggerSpec.js');
 
 
+// Serve Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 // middleware
@@ -27,8 +29,6 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
 
-// Serve Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 // routes
