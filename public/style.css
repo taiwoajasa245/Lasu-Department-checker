@@ -16,6 +16,10 @@ body {
   justify-content: center;
 }
 
+.edit-page { 
+  cursor: pointer;
+}
+
 input,
 textarea,
 select,
