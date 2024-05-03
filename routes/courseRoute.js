@@ -44,7 +44,7 @@ router.post('/get-dept', async (req, res) => {
     }
 });
 
-
+// POST request for testing
 router.post('/dept-courses', async (req, res) => {
 
     const { level } = req.body
@@ -57,6 +57,13 @@ router.post('/dept-courses', async (req, res) => {
 
         // Assuming 'html' contains your HTML content
         const $ = cheerio.load(response.data);
+
+        // Get the table element
+        
+        const table = $('#example1');
+
+        // Remove inline style from the table
+        table.removeAttr('style');
 
         // Get all rows in the table body
         const rows = $('#example1 tbody tr');
@@ -160,7 +167,7 @@ router.post('/dept-courses', async (req, res) => {
  *                       text:
  *                         type: string
  *                         description: Text of the department option
- */ 
+ */
 
 
 // get the department based on the selected faculty API 
@@ -281,7 +288,7 @@ router.post('/get-department', async (req, res) => {
  *                       COURSE_STATUS:
  *                         type: string
  *                         description: Status of the course
- */     
+ */
 
 
 // get the list of all courses and other thingss
