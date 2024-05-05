@@ -85,16 +85,11 @@ a:hover {
 .table {
   color: black;
   font-weight: bold;
-  text-align: center;
+  /* text-align: center; */
   width: fit-content;
-  
+  margin: auto;
   font-size: 14.5px;
 }
-
-td { 
-  padding: 2220px;
-}
-
 
 
 @media (max-width: 991px) {
@@ -103,9 +98,6 @@ td {
     padding-top: 50px;
   }
 
-  #img {
-    display: none;
-  }
 }
 @media (max-width: 767px) {
   .inner {
