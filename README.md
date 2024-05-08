@@ -1,5 +1,8 @@
 # LASU Course API
 
+[visit Website](https://lasu-course-api.onrender.com)
+
+
 This is a Node.js application built with Express that demonstrates web scraping using Axios and Cheerio, as well as integration with an external API. It provides endpoints for retrieving department information based on selected faculty and filtering courses by level.
 
 ## Prerequisites
@@ -28,6 +31,10 @@ Before running this application, make sure you have the following installed:
 - `GET /`: Renders the homepage.
 - `POST /get-dept`: Retrieves department information based on selected faculty.
 - `POST /dept-courses`: Retrieves and filters courses based on department and level.
+- `POST /get-department`: Retrieves and filters courses based on faculty request body and responds in JSON format.
+- `POST /get-courses`: Retrieves and filters courses based on faculty, department and level and responds in JSON format.
+
+
 
 ## Technologies Used
 
@@ -44,14 +51,20 @@ Before running this application, make sure you have the following installed:
 LASU DEPARTMENT CHECKER/
 |
 ├── public/
+|   |--css/
+|   |   |-style.css 
+|   |   |-other files 
 │   ├── scripts.js
 │   └── style.css
 │   └── other files
 │
+├── routes/
+│   ├── courseRoute.js
+|
 ├── views/
 │   ├── index.ejs
 |
-├── util/
+├── specs/
 │   ├── spec.js
 │
 ├── .env

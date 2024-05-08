@@ -21,7 +21,8 @@ const config = {
 
 
 router.get('/', (req, res) => {
-    res.render('index.ejs', { title: 'Home' }); // Pass any data you want to inject into the EJS template
+    // res.render('index.ejs', { title: 'Home' }); // Pass any data you want to inject into the EJS template
+    res.status(302).redirect('/api-docs'); 
 });
 
 
