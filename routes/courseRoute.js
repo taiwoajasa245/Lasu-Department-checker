@@ -21,8 +21,8 @@ const config = {
 
 
 router.get('/', (req, res) => {
-    // res.render('index.ejs', { title: 'Home' }); // Pass any data you want to inject into the EJS template
-    res.status(302).redirect('/api-docs'); 
+    res.render('index.ejs', { title: 'Home' });
+    // res.status(302).redirect('/api-docs'); 
 });
 
 
@@ -60,7 +60,7 @@ router.post('/dept-courses', async (req, res) => {
         const $ = cheerio.load(response.data);
 
         // Get the table element
-        
+
         const table = $('#example1');
 
         // Remove inline style from the table
